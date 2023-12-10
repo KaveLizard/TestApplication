@@ -1,0 +1,34 @@
+﻿@using TestApplication.Models
+<div>
+    <h4>Event Details</h4>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <p style="color:red;">@errorMessage</p>
+    }
+    <form>
+        <div class="form-group">
+            <label for="eventName">Event Name</label>
+            <input type="text" class="form-control" id="eventName" @bind="eventModel.Name">
+        </div>
+        <div class="form-group">
+            <label for="eventDescription">Event Description</label>
+            <textarea class="form-control" id="eventDescription" @bind="eventModel.Name"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" @onclick="CreateEvent">Create Event</button>
+    </form>
+</div>
+
+@code {
+    [Parameter]
+    public Event eventModel { get; set; }
+
+    [Parameter]
+    public EventCallback<Event> OnSubmit { get; set; }
+
+    private string errorMessage = string.Empty;
+    
+    private async Task CreateEvent()
+    {
+        await OnSubmit.InvokeAsync(eventModel);
+    }
+}
