@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VHX2+awjGuAteBqI1OqoCi65T/AUqb2TQKEiywE4KXOHzhNBuH42UGe0x5SOYoYa4vrvJRul25yLGwAmsgtddw==",
+  "dgSpecHash": "KxqCKjbKm3cqu5RNcx4vgk2ruk0ufHL4f4Km7z9vhZPvTpkggwwOS9XGCOtY/eUA7F0F023w+ezGHiKhTU2k0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\GitHub\\BlazorApp\\BlazorApp.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TestApplication\\TestApplication.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
