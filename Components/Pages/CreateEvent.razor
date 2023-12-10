@@ -1,0 +1,37 @@
+﻿@page "/createevent"
+@using TestApplication.Models
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Create Event</h3>
+
+<EventForm OnValidSubmit="CreateNewEvent" />
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>@errorMessage</p>
+}
+
+@code {
+    private string errorMessage = string.Empty;
+
+    private async Task CreateNewEvent(Event eventModel)
+    {
+        try
+        {
+            var response = await httpClient.PostAsJsonAsync<Event>("api/events", eventModel);
+            if (response.IsSuccessStatusCode)
+            {
+                navigationManager.NavigateTo("/eventlist");
+            }
+            else
+            {
+                errorMessage = "Failed to create the event. Please try again.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error: {ex.Message}";
+        }
+    }
+}

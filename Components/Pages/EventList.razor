@@ -1,0 +1,28 @@
+﻿@page "/eventlist"
+@using TestApplication.Models
+@using TestApplication.Services
+@inject EventService EventService // Внедрение сервиса для работы с событиями
+
+<h3>Список событий</h3>
+
+@if (EvList != null && EvList.Any()) // Проверка наличия событий
+{
+    @foreach (var eventItem in EvList)
+    {
+        <EventCard Event="eventItem" />
+    }
+}
+else
+{
+    <p>Список событий пуст</p>
+}
+
+@code {
+    List<Event> EvList{ get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        EvList = await EventService.GetEvents(); // Получение списка событий при инициализации компонента
+    }
+}
+
