@@ -1,0 +1,15 @@
+@using TestApplication.Models
+<div class="event-card">
+    <div class="card-header">
+        <h3>@Ev.Name</h3>
+    </div>
+    <div class="card-body">
+        <p>@Ev.Name</p>
+        <p>Cost: @Ev.Cost</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Event Ev { get; set; }
+}
